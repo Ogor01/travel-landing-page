@@ -1,0 +1,360 @@
+/* =============== GLOBAL RESET =============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* =============== LANDING PAGE =============== */
+.landing-page {
+  position: relative;
+  width: 100%;
+  /* allow the landing container to grow when content (carousel/search) is added */
+  min-height: 100vh;
+  /* allow elements that follow the hero to appear below it instead of being clipped */
+  overflow: visible;
+}
+
+/* =============== HERO IMAGE =============== */
+.hero-image-wrapper img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: brightness(0.9);
+}
+
+/* =============== NAVBAR =============== */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 80px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.nav-links a.active {
+  font-weight: 600;
+}
+
+.plan-trip-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.plan-trip-btn:hover {
+  background: #f2f2f2;
+}
+
+/* =============== HERO CONTENT =============== */
+.hero-content {
+  position: absolute;
+  top: 35%;
+  left: 80px;
+  color: white;
+  /* ensure hero content stays visually above carousel/other elements */
+  z-index: 3;
+}
+
+.hero-content h1 {
+  font-size: 68px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.hero-content .subtitle {
+  font-size: 17px;
+  margin-top: 12px;
+  color: #e5e5e5;
+  line-height: 1.5;
+}
+
+/* =============== LOCATION AND CAROUSEL =============== */
+/* Carousel SECTION - row layout (placed after hero) */
+.carousel-section {
+   /* flow in the normal document flow */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 22px 80px; /* aligns with the hero left spacing */
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20px; /* space below hero */
+   /* sit below hero content which has higher z-index */
+}
+
+/* LEFT PART: location + dots */
+.carousel-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+.current-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 15px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+.current-location i {
+  color: #fff;
+}
+
+/* small dots */
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25) inset;
+}
+.carousel-dots .dot.active {
+  background: #fff;
+}
+
+/* RIGHT PART: next destination + card + arrows */
+.carousel-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* next destination label */
+.next-destination-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+.next-destination-label .dot.blue {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #007aff;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.12);
+}
+
+/* carousel content wrapper - card + arrows sit in a row */
+.carousel-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* the preview card */
+.carousel-card {
+  width: 230px;
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ddd;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  flex-shrink: 0;
+}
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.carousel-card .card-info {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* stacked arrow buttons */
+.carousel-arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 6px;
+}
+.arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border: none;
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+.arrow i {
+  font-size: 12px;
+}
+
+/* small responsive adjustments */
+@media (max-width: 980px) {
+  .carousel-section {
+    padding: 18px 40px;
+    gap: 14px;
+  }
+  .carousel-card {
+    width: 200px;
+    height: 130px;
+  }
+  .carousel-arrows {
+    display: none;
+  } /* hide arrows on small screens */
+}
+
+@media (max-width: 640px) {
+  .carousel-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 20px;
+  }
+  .carousel-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .carousel-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* =============== SEARCH BAR =============== */
+.search-bar-container {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  width: 85%;
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  padding: 25px 40px;
+  z-index: 4; /* keep search bar above hero content for accessibility */
+}
+
+.search-tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+  padding-bottom: 6px;
+}
+
+.tab.active {
+  color: #007aff;
+  border-bottom: 2px solid #007aff;
+}
+
+.search-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fafafa;
+  padding: 12px 16px;
+  border-radius: 12px;
+  flex: 1;
+}
+
+.input-group i {
+  color: #999;
+  font-size: 14px;
+}
+
+.input-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-text span {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.input-text input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+}
+
+.search-btn {
+  background: #007aff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
